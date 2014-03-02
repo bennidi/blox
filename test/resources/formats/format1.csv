@@ -1,0 +1,10 @@
+Testblock
+#Delimiter:;
+#Comment:#
+#Encapsulator:"
+#ignoreBlankLines:true
+#ignoreLeadingWhitespaces:true
+#processUnicodeEscapes:true
+Column A; Column B; Column C
+#a blank line and a comment should be ignored
+long value;    leading whitespaces will be stripped; "   some leading whitespace that we want"

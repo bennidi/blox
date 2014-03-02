@@ -1,0 +1,9 @@
+Testblock
+#Delimiter:;
+#Comment:#
+#Encapsulator:"
+#ignoreBlankLines:true
+#ignoreLeadingWhitespaces:true
+#processUnicodeEscapes:true
+Column A; Column B; Column C
+long value;leading whitespaces will be stripped;"   some leading whitespace that we want"
