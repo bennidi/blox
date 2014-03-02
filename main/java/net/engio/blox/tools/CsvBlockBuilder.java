@@ -31,10 +31,10 @@ public class CsvBlockBuilder extends CsvEventHandlerSet {
     }
 
 
-    public static  CsvBlockBuilder[] fromBlockDefinitions(CsvBlockDescriptor...definitions){
-        CsvBlockBuilder[] builders = new CsvBlockBuilder[definitions.length];
-        for(int i = 0; i< definitions.length ; i++)
-            builders[i] = new CsvBlockBuilder(definitions[i]);
+    public static  CsvBlockBuilder[] fromDescriptors(CsvBlockDescriptor... descriptors){
+        CsvBlockBuilder[] builders = new CsvBlockBuilder[descriptors.length];
+        for(int i = 0; i< descriptors.length ; i++)
+            builders[i] = new CsvBlockBuilder(descriptors[i]);
         return builders;
     }
 

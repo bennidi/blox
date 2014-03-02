@@ -1,7 +1,7 @@
 package net.engio.blox.tests;
 
 import net.engio.blox.blockdef.CsvBlockDescriptor;
-import net.engio.blox.reader.BlockXreader;
+import net.engio.blox.reader.BloxReader;
 import net.engio.blox.tools.CsvBlockBuilder;
 import net.engio.blox.tools.CsvComparator;
 import net.engio.blox.tools.CsvComparator.Difference;
@@ -17,18 +17,18 @@ public class EncodingTest extends AbstractCsvUnitTest {
 		.ends().with().emptyLine()
 		.hasColumnNames(true);
 	
-	private static final BlockXreader.Factory Iso885915ReaderFactory = new BlockXreader.Factory("iso-8859-15");
-	private static final BlockXreader.Factory Utf_8ReaderFactory = new BlockXreader.Factory("UTF-8");
+	private static final BloxReader.Factory Iso885915ReaderFactory = new BloxReader.Factory("iso-8859-15");
+	private static final BloxReader.Factory Utf_8ReaderFactory = new BloxReader.Factory("UTF-8");
 
 	@Test
 	public void testIso_8859_15() throws FileNotFoundException, Exception {
 
         CsvBlockBuilder isoBlockBuilder = new CsvBlockBuilder(BasicBlockDef);
-        BlockXreader isoReader = Iso885915ReaderFactory.createReaderFor(isoBlockBuilder);
+        BloxReader isoReader = Iso885915ReaderFactory.createReaderFor(isoBlockBuilder);
         isoReader.read(getTestResource(Testfiles.Encodings.Iso8859_15));
 
         CsvBlockBuilder utfBlockBuilder = new CsvBlockBuilder(BasicBlockDef);
-        BlockXreader utfReader = Utf_8ReaderFactory.createReaderFor(utfBlockBuilder);
+        BloxReader utfReader = Utf_8ReaderFactory.createReaderFor(utfBlockBuilder);
         utfReader.read(getTestResource(Testfiles.Encodings.Utf_8));
 
 		CsvComparator comparator = new CsvComparator()
@@ -45,11 +45,11 @@ public class EncodingTest extends AbstractCsvUnitTest {
 	public void testWrongEncoding() throws FileNotFoundException, Exception {
 
         CsvBlockBuilder isoBlockBuilder = new CsvBlockBuilder(BasicBlockDef);
-        BlockXreader isoReader = Iso885915ReaderFactory.createReaderFor(isoBlockBuilder);
+        BloxReader isoReader = Iso885915ReaderFactory.createReaderFor(isoBlockBuilder);
         isoReader.read(getTestResource(Testfiles.Encodings.Utf_8));
 
         CsvBlockBuilder utfBlockBuilder = new CsvBlockBuilder(BasicBlockDef);
-        BlockXreader utfReader = Utf_8ReaderFactory.createReaderFor(utfBlockBuilder);
+        BloxReader utfReader = Utf_8ReaderFactory.createReaderFor(utfBlockBuilder);
         utfReader.read(getTestResource(Testfiles.Encodings.Iso8859_15));
 
         CsvComparator comparator = new CsvComparator()

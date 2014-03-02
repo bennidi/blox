@@ -3,7 +3,7 @@ package net.engio.blox.reader.events;
 import net.engio.blox.data.CsvEntry;
 
 /**
- * An instance of {@link CsvEvent} is created by the {@link net.engio.blox.reader.BlockXreader} for each line of a given source that represents relevant data. The event is passed to the corresponding handler
+ * An instance of {@link CsvEvent} is created by the {@link net.engio.blox.reader.BloxReader} for each line of a given source that represents relevant data. The event is passed to the corresponding handler
  * registered in the block metamodel.
  * 
  * 

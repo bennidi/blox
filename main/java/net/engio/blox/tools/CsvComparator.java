@@ -1,18 +1,12 @@
 package net.engio.blox.tools;
 
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import net.engio.blox.blockdef.CsvBlockDescriptor;
-import net.engio.blox.data.CsvEntry;
 import net.engio.blox.data.CsvBlock;
-import net.engio.blox.reader.BlockXreader;
+import net.engio.blox.data.CsvEntry;
+import net.engio.blox.reader.BloxReader;
+
+import java.io.InputStream;
+import java.util.*;
 
 /**
  * 
@@ -37,7 +31,7 @@ public class CsvComparator {
 
 	private boolean detailedAnalysis;
 
-	private BlockXreader.Factory blockXreader;
+	private BloxReader.Factory blockXreader;
 
 	public CsvComparator(boolean blockOrderImportant,
 			boolean lineOrderImportant,
@@ -46,7 +40,7 @@ public class CsvComparator {
 		this.blockOrderImportant = blockOrderImportant;
 		this.lineOrderImportant = lineOrderImportant;
 		this.detailedAnalysis = detailedAnalysis;
-		this.blockXreader = new BlockXreader.Factory(encoding);
+		this.blockXreader = new BloxReader.Factory(encoding);
 	}
 
 	public CsvComparator() {
@@ -102,8 +96,8 @@ public class CsvComparator {
 
 
     public List<Difference> compare(InputStream csv1, InputStream csv2, CsvBlockDescriptor...definitions) throws Exception {
-        CsvBlockBuilder[] doc1 = CsvBlockBuilder.fromBlockDefinitions(definitions);
-        CsvBlockBuilder[] doc2 = CsvBlockBuilder.fromBlockDefinitions(definitions);
+        CsvBlockBuilder[] doc1 = CsvBlockBuilder.fromDescriptors(definitions);
+        CsvBlockBuilder[] doc2 = CsvBlockBuilder.fromDescriptors(definitions);
         blockXreader.createReaderFor(doc1).read(csv1);
         blockXreader.createReaderFor(doc2).read(csv2);
 

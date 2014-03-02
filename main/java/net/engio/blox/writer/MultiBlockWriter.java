@@ -17,10 +17,6 @@ import java.util.List;
 
 public class MultiBlockWriter {
 	
-	public static MultiBlockWriter createForDestination(Writer destination){
-		return new MultiBlockWriter(destination);
-	}
-	
 	private Writer destination;
 	
 	private ICsvWriterFactory writerFactory;

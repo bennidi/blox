@@ -1,6 +1,5 @@
 package net.engio.blox.samples;
 
-import net.engio.converse.value.ValueConversions;
 import net.engio.blox.blockdef.CsvBlockDescriptor;
 import net.engio.blox.data.Column;
 import net.engio.blox.histogram.Histogram;
@@ -8,8 +7,9 @@ import net.engio.blox.histogram.Histogrammer;
 import net.engio.blox.histogram.aggregates.Count;
 import net.engio.blox.histogram.aggregates.Max;
 import net.engio.blox.histogram.aggregates.Min;
-import net.engio.blox.reader.BlockXreader;
+import net.engio.blox.reader.BloxReader;
 import net.engio.blox.tests.Testfiles;
+import net.engio.converse.value.ValueConversions;
 
 import java.io.InputStream;
 
@@ -17,7 +17,7 @@ import static net.engio.blox.histogram.Histogram.Column;
 
 public class HistogramSample {
 	
-	private static BlockXreader.Factory ReaderFactory = new BlockXreader.Factory("UTF-8");
+	private static BloxReader.Factory ReaderFactory = new BloxReader.Factory("UTF-8");
 
 
     public static void main(String[] args){
@@ -47,7 +47,7 @@ public class HistogramSample {
 			.hasColumnNames(true);
 
 		//run the multiblock reader
-		BlockXreader parser = ReaderFactory.createReaderFor(new Histogrammer(histogram, blockdef));
+		BloxReader parser = ReaderFactory.createReaderFor(new Histogrammer(histogram, blockdef));
 		parser.read(input);
 		System.out.println(histogram);		
 	}

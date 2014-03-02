@@ -58,7 +58,6 @@ public class CsvBlock{
 		return body;
 	}
 
-
     /**
      * Get the number of rows of this blocks data
      * @return the number of data lines (optional column headers are not counted)
@@ -66,7 +65,6 @@ public class CsvBlock{
 	public int getNumberOfRows() {
 		return getBody().getData().length;
 	}
-
 
     /**
      * Get the blocks data as a list of {@link CsvEntry} objects
@@ -85,11 +83,6 @@ public class CsvBlock{
 	public CsvEntry getLine(int idx) {
 		return body.getCsvLine(idx);
 	}
-	
-
-	
-
-	
 
 	public CsvBlock addItem(Map<String, String> item) {
 		getBody().addItem(item);

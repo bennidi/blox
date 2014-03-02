@@ -3,7 +3,7 @@ package net.engio.blox.reader.events;
 import net.engio.blox.data.CsvBlock;
 
 /**
- * Event handlers are called by the {@link net.engio.blox.reader.BlockXreader} to handle corresponding parser events. They can be used to implement
+ * Event handlers are called by the {@link net.engio.blox.reader.BloxReader} to handle corresponding parser events. They can be used to implement
  * arbitrary operations on the csv data.
  * 
  * Example: The {@link CsvInMemoryBlockBuilder} implements a set of handlers for creating and populating instances of {@link CsvBlock},

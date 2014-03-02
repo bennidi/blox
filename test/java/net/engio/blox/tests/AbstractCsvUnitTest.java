@@ -2,7 +2,7 @@ package net.engio.blox.tests;
 
 import junit.framework.Assert;
 import net.engio.blox.blockdef.CsvBlockDescriptor;
-import net.engio.blox.reader.BlockXreader;
+import net.engio.blox.reader.BloxReader;
 import net.engio.blox.reader.parser.ICsvParserFactory;
 import net.engio.blox.tools.CsvBlockBuilder;
 import net.engio.blox.tools.CsvComparator;
@@ -74,13 +74,13 @@ public abstract class AbstractCsvUnitTest {
 		try {
 			// create input stream and run the reader
 			InputStream input = getTestResource(srcFile);
-            CsvBlockBuilder[] blockBuilders = CsvBlockBuilder.fromBlockDefinitions(definitions);
-            BlockXreader reader = new BlockXreader(ICsvParserFactory.Default, blockBuilders, encoding);
+            CsvBlockBuilder[] blockBuilders = CsvBlockBuilder.fromDescriptors(definitions);
+            BloxReader reader = new BloxReader(ICsvParserFactory.Default, blockBuilders, encoding);
             reader.read(input);
 
             String outputFileLocation = getAbsolutePathToResource(srcFile) + ".out";
             Writer output = new FileWriter(outputFileLocation);
-            MultiBlockWriter blockWriter = MultiBlockWriter.createForDestination(output);
+            MultiBlockWriter blockWriter = new MultiBlockWriter(output);
 			blockWriter.writeBlocks(CsvBlockBuilder.getBlocks(blockBuilders));
             blockWriter.close();
 			

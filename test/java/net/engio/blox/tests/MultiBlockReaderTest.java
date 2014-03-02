@@ -2,13 +2,13 @@ package net.engio.blox.tests;
 
 import net.engio.blox.blockdef.CsvBlockDescriptor;
 import net.engio.blox.data.CsvBlock;
-import net.engio.blox.reader.BlockXreader;
+import net.engio.blox.reader.BloxReader;
 import net.engio.blox.tools.CsvBlockBuilder;
 import org.junit.Test;
 
 public class MultiBlockReaderTest extends AbstractCsvUnitTest {
 
-    private BlockXreader.Factory Utf8Reader = BlockXreader.Factory.forUTF8();
+    private BloxReader.Factory Utf8Reader = BloxReader.Factory.forUTF8();
 
     @Test
     public void testStaticSingleBlockReading() {
@@ -17,7 +17,7 @@ public class MultiBlockReaderTest extends AbstractCsvUnitTest {
                     .starts().after().line(18)
                     .ends().after().line(30)
                     .hasColumnNames(true));
-            BlockXreader isoReader = Utf8Reader.createReaderFor(blockBuilder);
+            BloxReader isoReader = Utf8Reader.createReaderFor(blockBuilder);
             isoReader.read(getTestResource(Testfiles.Common.PaymentMultiblock));
 
             // now the in-memory model is initialized
@@ -45,7 +45,7 @@ public class MultiBlockReaderTest extends AbstractCsvUnitTest {
                     .ends().with().emptyLine()
                     .hasColumnNames(true)
                     .headerSize(1));
-            BlockXreader isoReader = Utf8Reader.createReaderFor(blockBuilder);
+            BloxReader isoReader = Utf8Reader.createReaderFor(blockBuilder);
             isoReader.read(getTestResource(Testfiles.Common.PaymentMultiblock));
 
             // the model is now initialized
@@ -75,7 +75,7 @@ public class MultiBlockReaderTest extends AbstractCsvUnitTest {
                     .starts().after().pattern("Daten.*")
                     .ends().with().emptyLine()
                     .hasColumnNames(true));
-            BlockXreader isoReader = Utf8Reader.createReaderFor(block1, block2);
+            BloxReader isoReader = Utf8Reader.createReaderFor(block1, block2);
             isoReader.read(getTestResource(Testfiles.Common.PaymentMultiblock));
 
             assertTrue(!block1.getBlock().getEntries().isEmpty());

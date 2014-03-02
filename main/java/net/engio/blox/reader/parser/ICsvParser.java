@@ -4,7 +4,7 @@ package net.engio.blox.reader.parser;
 import net.engio.blox.reader.CsvReaderException;
 
 /**
- * A csv reader is used by the {@link net.engio.blox.reader.BlockXreader} to parse strings or string based input
+ * A csv reader is used by the {@link net.engio.blox.reader.BloxReader} to parse strings or string based input
  * and produce a string array that contains the parsed values.
  * 
  * @author Benjamin Diedrichsen

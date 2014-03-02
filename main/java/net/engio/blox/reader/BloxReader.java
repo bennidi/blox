@@ -39,7 +39,7 @@ import java.io.InputStreamReader;
  * @author Benjamin Diedrichsen
  */
 
-public class BlockXreader {
+public class BloxReader {
 
     private ICsvParserFactory readerFactory;
 
@@ -47,7 +47,7 @@ public class BlockXreader {
 
     private String encoding;
 
-    public BlockXreader(ICsvParserFactory factory, CsvEventHandlerSet[] handlers, String encoding) {
+    public BloxReader(ICsvParserFactory factory, CsvEventHandlerSet[] handlers, String encoding) {
         super();
         readerFactory = factory;
         this.handlers = handlers;
@@ -191,8 +191,8 @@ public class BlockXreader {
             return new Factory("UTF-8");
         }
 
-        public BlockXreader createReaderFor(final CsvEventHandlerSet... handlers) {
-            return new BlockXreader(readerFactory, handlers, charSet);
+        public BloxReader createReaderFor(final CsvEventHandlerSet... handlers) {
+            return new BloxReader(readerFactory, handlers, charSet);
         }
 
 
