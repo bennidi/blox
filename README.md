@@ -12,6 +12,8 @@ The event based approach to parsing the csv files offers high performance and a 
 With custom event handlers it is possible to implement any processing logic like value conversions, aggregations or
 data histograms.
 
+Check out the [javadoc](http://bennidi.github.io/blox/)
+
 
  <h2>Usage</h2>
 

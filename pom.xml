@@ -74,8 +74,6 @@
 	</dependencies>
 
 	<build>
-
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -110,12 +108,13 @@
                     <aggregate>true</aggregate>
                     <show>public</show>
                     <nohelp>true</nohelp>
-                    <header>mbassador, ${project.version}</header>
-                    <footer>mbassador, ${project.version}</footer>
-                    <doctitle>mbassador, ${project.version}</doctitle>
+                    <header>blox, ${project.version}</header>
+                    <footer>blox, ${project.version}</footer>
+                    <doctitle>blox, ${project.version}</doctitle>
+                    <!--
                     <links>
                         <link></link>
-                    </links>
+                    </links>-->
                 </configuration>
             </plugin>
             <plugin>
@@ -127,7 +126,7 @@
                     <checkinComment>Publishing javadoc for ${project.artifactId}:${project.version}</checkinComment>
                     <content>${project.reporting.outputDirectory}/apidocs</content>
                     <skipDeletedFiles>true</skipDeletedFiles>
-                    <pubScmUrl>scm:git:git@github.com:bennidi/mbassador.git</pubScmUrl>
+                    <pubScmUrl>scm:git:git@github.com:bennidi/blox.git</pubScmUrl>
                     <scmBranch>gh-pages</scmBranch> <!-- branch with static site on github-->
                 </configuration>
             </plugin>
